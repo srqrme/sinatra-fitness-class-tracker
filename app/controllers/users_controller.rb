@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  validates :name, format: { with: /\A[a-zA-Z]+\z/,
-    message: "Please use letters only"}
 
   get '/signup' do
     if logged_in?
