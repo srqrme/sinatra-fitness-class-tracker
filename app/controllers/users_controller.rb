@@ -12,9 +12,19 @@ class UsersController < ApplicationController
     if params[:name] == "" || params[:username] == "" || params[:password]
       redirect to '/signup'
     else
-      @user = User.create(:name => params[:name], :username => params[:username], :password => params[:password])
+      @user = User.new(:name => params[:name], :username => params[:username], :password => params[:password])
+      @user.save
       session[:user_id] = @user.id
-      redirect '/fitness_classes'
+      redirect to '/fitness_classes'
     end
   end
+
+  get '/login' do
+    if logged_in?
+      redirect to '/fitness_classes'
+    else
+      erb :'users/login'
+    end
+  end
+
 end
