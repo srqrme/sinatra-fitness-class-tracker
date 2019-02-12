@@ -1,11 +1,11 @@
 <h2>All of Your Classes</h2>
 
-<% @fitness_classes.each do |fit_class| %>
-  Class Name: <%= fit_class.name %>
-  Date: <%= fit_class.date %>
-  Time: <%= fit_class.time %>
-  Duration: <%= fit_class.duration %>
-  Instructor: <%= fit_class.instructor %>
+<% @fitness_classes.each do |fitness_class| %>
+  Class Name: <%= fitness_class.name %>
+  Date: <%= fitness_class.date %>
+  Time: <%= fitness_class.time %>
+  Duration: <%= fitness_class.duration %>
+  Instructor: <%= fitness_class.instructor %>
 <% end %>
 
 <a href="/logout">Log out</a>
