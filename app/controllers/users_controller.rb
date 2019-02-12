@@ -6,19 +6,18 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do
-    if logged_in?
-      redirect to '/fitness_classes/'
-    else
+    if !logged_in?
       erb :'users/signup'
+    else
+      redirect to '/fitness_classes/'
     end
   end
 
   post '/signup' do
-    if params[:name] == "" || params[:username] == "" || params[:password]
-      redirect to '/signup'
+    if params[:name] == "" || params[:username] == "" || params[:password] == ""
+      redirect to "/signup"
     else
-      @user = User.new(:name => params[:name], :username => params[:username], :password => params[:password])
-      @user.save
+      @user = User.create(:name => params[:name], :username => params[:username], :password => params[:password])
       session[:user_id] = @user.id
       redirect to '/fitness_classes'
     end

@@ -26,8 +26,8 @@ class FitnessClassesController < ApplicationController
       redirect to "/fitness_classes/new"
     else
       @fitness_class = FitnessClass.new(name: params["name"],
-      date: params["date"], 
-      time: params["time"], 
+      date: params["date"],
+      time: params["time"],
       duration: params["duration"],
       instructor: params["instructor"])
       redirect to "/fitness_classes/#{@fitness_class.id}"
