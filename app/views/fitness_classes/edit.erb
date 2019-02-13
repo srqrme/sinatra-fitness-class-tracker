@@ -1,0 +1,7 @@
+Edit your Class
+
+<form method="POST" action="/fitness_classes/<%= @fitness_class.id %>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="name" value="<%= @fitness_class.name %>">
+  <input type="submit" value="submit">
+</form>
