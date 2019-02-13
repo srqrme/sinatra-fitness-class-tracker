@@ -4,4 +4,11 @@
   Time: <%= class.time %>
 <% end %>
 
+
+<% if @fitness_class.user_id == current_user.id%>
+<form method="POST" action="/fitness_classes/<%= @fitness_class.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Class">
+</form>
+
 <a href="/logout">Log out</a>
