@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'users/signup'
     else
-      redirect to '/fitness_classes/'
+      redirect to '/fitness_classes'
     end
   end
 

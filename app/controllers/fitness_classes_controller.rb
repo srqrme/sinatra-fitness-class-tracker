@@ -30,7 +30,7 @@ class FitnessClassesController < ApplicationController
       time: params["time"],
       duration: params["duration"],
       instructor: params["instructor"])
-      redirect to "/fitness_classes/#{@fitness_class.id}"
+      redirect to "/fitness_classes/#{fitness_class.id}"
     end
   end
 
