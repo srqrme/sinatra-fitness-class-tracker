@@ -2,7 +2,7 @@ class FitnessClassesController < ApplicationController
 
   get '/fitness_classes' do
     if logged_in?
-      @fitness_classes = FitnessClass.all
+      @fitness_classes = current_user.fitness_classes.all
       erb :'fitness_classes/classes'
     else
       redirect to '/login'
@@ -37,7 +37,9 @@ class FitnessClassesController < ApplicationController
   get '/fitness_classes/:id' do
     if logged_in?
       @fitness_class = FitnessClass.find_by_id(params[:id])
-      erb :'/fitness_classes/show'
+      if @fitness_class.user_id == current_user.id
+        erb :'/fitness_classes/show'
+      end
     else
       redirect to '/login'
     end
@@ -64,7 +66,6 @@ class FitnessClassesController < ApplicationController
         @fitness_class = FitnessClass.find_by_id(params[:id])
         if @fitness_class.user_id = current_user.id
           @fitness_class.update(name: params["name"])
-          @fitness_class.save
           redirect to "/fitness_classes/#{@fitness_class.id}"
         else
         redirect to "/fitness_classes"

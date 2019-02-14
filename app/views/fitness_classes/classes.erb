@@ -1,12 +1,15 @@
+Welcome, <%= current_user.name %><br></br>
 <h2>Your Classes</h2>
 
+<div>
 <% @fitness_classes.each do |fit_class| %>
-  Class Name: <%= fit_class.name %>
-  Date: <%= fit_class.date %>
-  Time: <%= fit_class.time %>
-  Duration: <%= fit_class.duration %>
-  Instructor: <%= fit_class.instructor %>
+  Class Name: <%= fit_class.name %><br></br>
+  Date: <%= fit_class.date %><br></br>
+  Time: <%= fit_class.time %><br></br>
+  Duration: <%= fit_class.duration %><br></br>
+  Instructor: <%= fit_class.instructor %><br></br>
 <% end %>
+</div>
 
-<a href="/fitness_classes/new">Create a class</a><br></br>
+<a href="/fitness_classes/new">Create a new class</a><br></br>
 <a href="/logout">Log out</a>
