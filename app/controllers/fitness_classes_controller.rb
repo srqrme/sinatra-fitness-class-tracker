@@ -41,6 +41,7 @@ class FitnessClassesController < ApplicationController
         erb :'/fitness_classes/show'
       end
     else
+      flash[:message] = "You must be logged in to view this class."
       redirect to '/login'
     end
   end
