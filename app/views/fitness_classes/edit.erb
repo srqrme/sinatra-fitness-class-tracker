@@ -1,7 +1,14 @@
-Edit your Class
+<p><h2>Edit your Class</p></h2>
 
 <form method="POST" action="/fitness_classes/<%= @fitness_class.id %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <input type="text" name="name" value="<%= @fitness_class.name %>">
-  <input type="submit" value="submit">
+
+<p>Class Name:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" value="<%= @fitness_class.name %>"></p>
+
+<p>Date:&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" name="date" value="<%= @fitness_class.date %>"></p>
+
+<p>Time:&nbsp;&nbsp;&nbsp;&nbsp;<input type="time" name="time" value="<%= @fitness_class.time %>"></p>
+
+  <br></br>
+  <input type="submit" value="Submit">
 </form>

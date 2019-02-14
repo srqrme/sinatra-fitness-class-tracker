@@ -25,12 +25,12 @@ class FitnessClassesController < ApplicationController
       params[:instructor] == ""
       redirect to "/fitness_classes/new"
     else
-      @fitness_class = FitnessClass.new(name: params["name"],
-      date: params["date"],
-      time: params["time"],
-      duration: params["duration"],
-      instructor: params["instructor"])
-      redirect to "/fitness_classes/#{fitness_class.id}"
+      @fitness_class = current_user.fitness_classes.create(name: params[:name],
+      date: params[:date],
+      time: params[:time],
+      duration: params[:duration],
+      instructor: params[:instructor])
+      redirect to "/fitness_classes/#{@fitness_class.id}"
     end
   end
 
