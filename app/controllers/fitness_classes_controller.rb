@@ -39,6 +39,8 @@ class FitnessClassesController < ApplicationController
       @fitness_class = FitnessClass.find_by_id(params[:id])
       if @fitness_class.user_id == current_user.id
         erb :'/fitness_classes/show'
+      else
+        halt 500  , "error message"
       end
     else
       redirect to '/login'
